@@ -4,7 +4,7 @@ this is a 2D game created with the Java Language!<br>
 
 ## Features
 
-- [ ] Player
+- [x] Player
 - [ ] Entities (enemies, bullets, weapon...)
 - [ ] Save Game
 - [ ] Sound Efects
