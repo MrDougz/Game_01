@@ -1,2 +1,10 @@
-# Game_01
+# 2D Game
  
+this is a 2D game created with the Java Language!<br>
+
+## Features
+
+- [ ] Player
+- [ ] Entities (enemies, bullets, weapon...)
+- [ ] Save Game
+- [ ] Sound Efects

@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.mrdougz.main.Game;
+
 public class World {
 	
 	private Tile[] tiles;
@@ -21,19 +23,27 @@ public class World {
 			map.getRGB(0, 0, map.getWidth(), map.getHeight(), pixels, 0, map.getWidth());
 			for(int xx = 0; xx < map.getWidth(); xx++) {
 				for(int yy = 0; yy < map.getHeight(); yy++) {
+					tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR);
 					switch (pixels[xx + (yy*map.getWidth())]) {
 					
-					case 0xFF000000:
+					case 0xFF000000: // Floor
 						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR); break;
-						
-					case 0xFFFFFFFF:
+					
+					case 0xFFFFFFFF: // Wall
 						tiles[xx + (yy * WIDTH)] = new WallTile(xx*16, yy*16, Tile.TILE_WALL); break;
 					
 					case 0xFF0026FF: // Player
-						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR); break;
-					
-					default:
-						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16, yy*16, Tile.TILE_FLOOR); break;
+						Game.player.setX(xx*16);
+						Game.player.setY(yy*16);
+						break;
+					case 0xFFFF0000: // Enemy
+						; break;
+					case 0xFFFF6A00: // Weapon
+						; break;
+					case 0xFFFF7F7F: // Lifepack
+						; break;
+					case 0xFFFFD800: // Bullet
+						; break;
 					}
 				}
 				
